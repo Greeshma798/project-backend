@@ -1,0 +1,27 @@
+package com.nutrition.dietary_analysis.model;
+
+import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+
+@Entity
+@Table(name = "routines")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Routine {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    private String time; // e.g., "07:00 AM"
+
+    @Column(nullable = false)
+    private String activity; // e.g., "Breakfast"
+
+    @Column(name = "user_id")
+    private Long userId;
+}
