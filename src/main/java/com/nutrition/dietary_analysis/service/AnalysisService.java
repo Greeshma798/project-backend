@@ -48,7 +48,7 @@ public class AnalysisService {
         List<DietRecord> records = dietRecordRepository.findByUserIdAndDateBetween(userId, startDate, endDate);
         List<DietRecord> todayRecords = dietRecordRepository.findByUserIdAndDateBetween(userId, endDate, endDate);
 
-        // Aggregate 7-Day Average
+        
         double avgCalories = 0, avgProtein = 0, avgCarbs = 0, avgFat = 0;
         double avgVitA = 0, avgVitC = 0, avgVitD = 0, avgIron = 0, avgCalcium = 0;
         if (!records.isEmpty()) {
@@ -65,7 +65,7 @@ public class AnalysisService {
             avgCalcium = records.stream().mapToDouble(r -> r.getCalcium() != null ? r.getCalcium() : 0).sum() / 7.0;
         }
 
-        // Aggregate Today's Total
+        
         double todayCalories = 0, todayProtein = 0, todayCarbs = 0, todayFat = 0;
         double todayVitA = 0, todayVitC = 0, todayVitD = 0, todayIron = 0, todayCalcium = 0;
         if (!todayRecords.isEmpty()) {

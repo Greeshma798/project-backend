@@ -17,10 +17,10 @@ public class Routine {
     private Long id;
 
     @Column(nullable = false)
-    private String time; // e.g., "07:00 AM"
+    private String time; 
 
     @Column(nullable = false)
-    private String activity; // e.g., "Breakfast"
+    private String activity; 
 
     @Column(name = "user_id")
     private Long userId;

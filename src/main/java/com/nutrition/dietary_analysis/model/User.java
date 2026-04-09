@@ -26,13 +26,13 @@ public class User {
     private String password;
 
     @Column(nullable = false)
-    private String role = "USER"; // "ADMIN" or "USER"
+    private String role = "USER"; 
 
     private Integer age;
-    private String gender; // "MALE", "FEMALE"
+    private String gender; 
     private Double weight;
     private Double height;
     private String goal;
     private String activityLevel;
-    private String healthConditions; // Comma-separated or JSON list
+    private String healthConditions; 
 }

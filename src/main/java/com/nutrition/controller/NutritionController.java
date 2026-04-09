@@ -11,7 +11,7 @@ import java.util.*;
 @CrossOrigin(origins = "http://localhost:5173")
 public class NutritionController {
 
-    // Simple In-Memory Login (Replace with DB Repo later)
+   
     @PostMapping("/login")
     public Map<String, String> login(@RequestBody User user) {
         Map<String, String> response = new HashMap<>();
