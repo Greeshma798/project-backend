@@ -20,11 +20,15 @@ public class AdminController {
 
     private final NutritionalStandardRepository standardRepository;
     private final UserRepository userRepository;
+    private final com.nutrition.dietary_analysis.repository.MedicationRepository medicationRepository;
 
     @Autowired
-    public AdminController(NutritionalStandardRepository standardRepository, UserRepository userRepository) {
+    public AdminController(NutritionalStandardRepository standardRepository, 
+                           UserRepository userRepository,
+                           com.nutrition.dietary_analysis.repository.MedicationRepository medicationRepository) {
         this.standardRepository = standardRepository;
         this.userRepository = userRepository;
+        this.medicationRepository = medicationRepository;
     }
 
     // Nutritional Standards Management
@@ -51,7 +55,6 @@ public class AdminController {
         List<Map<String, Object>> summary = new ArrayList<>();
         
         for (User user : users) {
-             if ("ADMIN".equals(user.getRole())) continue;
              Map<String, Object> data = new HashMap<>();
              data.put("id", user.getId());
              data.put("username", user.getUsername());
@@ -59,8 +62,16 @@ public class AdminController {
              data.put("age", user.getAge());
              data.put("weight", user.getWeight());
              data.put("height", user.getHeight());
+             data.put("goal", user.getGoal());
+             data.put("role", user.getRole());
              summary.add(data);
         }
         return summary;
+    }
+
+    // Medication Monitoring
+    @GetMapping("/medications")
+    public List<com.nutrition.dietary_analysis.model.Medication> getAllMedications() {
+        return medicationRepository.findAll();
     }
 }

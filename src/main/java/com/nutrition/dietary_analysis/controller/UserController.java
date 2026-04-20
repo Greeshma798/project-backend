@@ -38,6 +38,8 @@ public class UserController {
                     if (updatedUser.getGoal() != null) user.setGoal(updatedUser.getGoal());
                     if (updatedUser.getActivityLevel() != null) user.setActivityLevel(updatedUser.getActivityLevel());
                     if (updatedUser.getUsername() != null) user.setUsername(updatedUser.getUsername());
+                    if (updatedUser.getHealthConditions() != null) user.setHealthConditions(updatedUser.getHealthConditions());
+                    if (updatedUser.getGender() != null) user.setGender(updatedUser.getGender());
                     User saved = userRepository.save(user);
                     saved.setPassword(null);
                     return ResponseEntity.ok(saved);
