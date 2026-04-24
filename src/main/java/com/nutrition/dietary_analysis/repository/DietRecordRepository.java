@@ -12,4 +12,6 @@ public interface DietRecordRepository extends JpaRepository<DietRecord, Long> {
     List<DietRecord> findByUserId(Long userId);
 
     List<DietRecord> findByUserIdAndDateBetween(Long userId, LocalDate startDate, LocalDate endDate);
+    
+    void deleteByUserId(Long userId);
 }

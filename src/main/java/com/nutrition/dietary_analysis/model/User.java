@@ -35,4 +35,7 @@ public class User {
     private String goal;
     private String activityLevel;
     private String healthConditions; 
+
+    @Column(columnDefinition = "TEXT")
+    private String customDietPlan; // Stores JSON of expert-suggested schedule
 }

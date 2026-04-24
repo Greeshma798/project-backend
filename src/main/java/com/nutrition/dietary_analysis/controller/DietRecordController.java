@@ -68,4 +68,10 @@ public class DietRecordController {
             return ResponseEntity.internalServerError().build();
         }
     }
+
+    @DeleteMapping("/user/{userId}")
+    public ResponseEntity<Void> clearUserHistory(@PathVariable Long userId) {
+        service.clearHistoryByUserId(userId);
+        return ResponseEntity.ok().build();
+    }
 }

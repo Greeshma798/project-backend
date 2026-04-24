@@ -51,4 +51,9 @@ public class DietRecordService {
     public void deleteRecord(@NonNull Long id) {
         repository.deleteById(id);
     }
+
+    @org.springframework.transaction.annotation.Transactional
+    public void clearHistoryByUserId(@NonNull Long userId) {
+        repository.deleteByUserId(userId);
+    }
 }

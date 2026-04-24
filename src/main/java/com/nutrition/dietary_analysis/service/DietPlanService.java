@@ -39,6 +39,7 @@ public class DietPlanService {
             plan.put("meals", meals);
             plan.put("deficiencies", deficiencies);
             plan.put("healthConsiderations", getHealthAdvice(health));
+            plan.put("customDietPlan", user.getCustomDietPlan());
 
             return plan;
         } catch (Exception e) {
